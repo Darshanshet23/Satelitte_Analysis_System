@@ -44,20 +44,23 @@ Develop an AI-powered system to automatically classify satellite images, identif
 - **IDE:** Jupyter Notebook, VS Code
 
 ## Project Structure
-├── app.py # Main Flask application
-├── Prediction.ipynb # Notebook for prediction and testing
-├── Satellite_Image_Analysis_System.ipynb # Data exploration and model training
-├── static/ # Static files (images, CSS, JS)
-│ └── uploads/ # Uploaded images and prediction results
-├── templates/ # HTML templates
-├── metadata.csv # Metadata for images
-├── .gitignore # Files and folders ignored by Git
-├── requirements.txt # Python package dependencies
-├── model/ # (ignored) Trained ML models
-├── checkpoints/ # (ignored) Model checkpoints
-├── train/, test/, valid/ # (ignored) Dataset folders
-├── db.sqlite3 # (ignored) Database file
-└── README.md # Project documentation (this file)
+```
+├── app.py                       # Main Flask application
+├── Prediction.ipynb            # Notebook for prediction and testing
+├── Satellite_Image_Analysis_System.ipynb  # Data exploration and model training
+├── static/                     # Static files (images, CSS, JS)
+│   └── uploads/                # Uploaded images and prediction results
+├── templates/                  # HTML templates
+├── metadata.csv                # Metadata for images
+├── .gitignore                  # Files and folders ignored by Git
+├── requirements.txt            # Python package dependencies
+├── model/                      # (ignored) Trained ML models
+├── checkpoints/                # (ignored) Model checkpoints
+├── train/, test/, valid/       # (ignored) Dataset folders
+├── db.sqlite3                  # (ignored) Database file
+└── README.md                   # Project documentation (this file)
+```
+
 
 
 
