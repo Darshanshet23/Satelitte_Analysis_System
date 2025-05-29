@@ -38,26 +38,32 @@ Develop an AI-powered system to automatically classify satellite images, identif
 - **Machine Learning:** TensorFlow, Keras, Scikit-learn  
 - **Data Processing:** Pandas, NumPy  
 - **Image Processing:** OpenCV, Tesseract OCR  
-- **Visualization:** Matplotlib, Seaborn, Plotly  
-- **Web Framework:** Flask, Django  
-- **Database:** SQLite, PostgreSQL  
+- **Visualization:** Matplotlib, Seaborn  
+- **Web Framework:** Flask  
+- **Database:** SQLite  
 - **IDE:** Jupyter Notebook, VS Code
 
-## How to Run the Project
-1. Clone the repository.
-2. Create and activate a Python virtual environment.
-3. Install dependencies via `pip install -r requirements.txt`.
-4. Preprocess data using the scripts in the `module1` folder.
-5. Train the model using the scripts in the `module2` folder.
-6. Run image analysis via the `module3` system.
-7. Launch the web interface (frontend + backend) for visualization.
+## Project Structure
+├── app.py                       # Main Flask application
+├── Prediction.ipynb             # Notebook for prediction and testing
+├── Satellite_Image_Analysis_System.ipynb # Data exploration and model training
+├── static/                      # Static files (images, CSS, JS)
+│   └── uploads/                 # Uploaded images and prediction results
+├── templates/                   # HTML templates
+├── metadata.csv                 # Metadata for images
+├── .gitignore                   # Files and folders ignored by Git
+├── requirements.txt             # Python package dependencies
+├── model/                      # (ignored) Trained ML models
+├── checkpoints/                # (ignored) Model checkpoints
+├── train/, test/, valid/       # (ignored) Dataset folders
+├── db.sqlite3                  # (ignored) Database file
+└── README.md                   # Project documentation (this file)
+
+
 
 ## Future Enhancements
 - Expand dataset with more varied satellite imagery.
 - Apply transfer learning or ensemble models for better accuracy.
 - Add user authentication and analytics to the web interface.
 
-## Author
-Darshan Shet  
-Contact: [your.email@example.com]
 
