@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Satellite Image Analyzer</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url("{{ url_for('static', filename='uploads/iStock-182062885 - Copy.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            display: inline-block;
+            border-radius: 10px;
+        }
+
+        .image-group {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .image-box {
+            text-align: center;
+        }
+
+        img {
+            width: 256px;
+            height: 256px;
+            object-fit: cover;
+            border: 2px solid #fff;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-label {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #00b894;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-label:hover {
+            background-color: #019875;
+        }
+
+        .download-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            padding: 0;
+        }
+
+        .download-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #00b894;
+            transition: fill 0.2s ease;
+        }
+
+        .download-icon:hover svg {
+            fill: #019875;
+        }
+
+        form {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="margin-top: 20px; font-size: 36px; color: #ffffff; text-shadow: 2px 2px 4px #000;">
+        AI-Powered Satellite Image Analysis System
+    </h1>
+    
+
+    <div class="container">
+        <h1>Upload Your Satellite Image</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file-upload" class="upload-label">Upload &amp; Analyze</label>
+            <input id="file-upload" type="file" name="image" required onchange="this.form.submit()">
+        </form>
+
+        {% if image_url and pred_url %}
+            <h2>Original Image vs Predicted Segmentation</h2>
+            <div class="image-group">
+                <div class="image-box">
+                    <h3>Original</h3>
+                    <img src="{{ url_for('static', filename='uploads/' + image_url) }}">
+                </div>
+
+                <div class="image-box">
+                    <h3>Predicted</h3>
+                    <img src="{{ url_for('static', filename='uploads/' + pred_url) }}">
+                    <br>
+                    <a href="{{ url_for('static', filename='uploads/' + pred_url) }}" download>
+                        <button class="download-icon" title="Download Prediction">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 3a1 1 0 0 1 1 1v9.59l3.29-3.3a1 1 0 1 1 1.42 1.42l-5 5a1 1 0 0 1-1.42 0l-5-5a1 1 0 1 1 1.42-1.42L11 13.59V4a1 1 0 0 1 1-1z"/>
+                                <path d="M5 20a1 1 0 0 1 0-2h14a1 1 0 0 1 0 2H5z"/>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Legend section -->
+            <div style="margin-top: 30px;">
+                <div style="background-color: #222; padding: 10px 15px; border-radius: 10px; display: inline-block; text-align: left; font-size: 14px;">
+                    <div style="font-weight: bold; margin-bottom: 5px;">Legend</div>
+                    <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                        <div style="width: 15px; height: 15px; background-color: green; margin-right: 10px; border-radius: 2px;"></div>
+                        <span>Forest</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                        <div style="width: 15px; height: 15px; background-color: blue; margin-right: 10px; border-radius: 2px;"></div>
+                        <span>Water</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 15px; height: 15px; background-color: yellow; margin-right: 10px; border-radius: 2px;"></div>
+                        <span>Urban</span>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
