@@ -1,4 +1,5 @@
 # AI-Powered Satellite Image Analysis System
+![image](https://github.com/user-attachments/assets/b72c0137-557c-4264-ac0e-ada6aebed353)
 
 ## Project Overview
 This project develops an AI-based system to analyze satellite images for identifying and classifying different land features and objects, such as buildings, roads, and natural landscapes. The system uses deep learning to automate satellite image classification, improving accuracy and efficiency.
